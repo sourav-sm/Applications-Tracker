@@ -15,7 +15,7 @@ router.post("/applications",async (req,res)=>{
 })
 
 
-router.post("/applications",async (req,res)=>{
+router.get("/applications",async (req,res)=>{
     try{
         const application=await Application.find();
         res.status(200).json(application);
