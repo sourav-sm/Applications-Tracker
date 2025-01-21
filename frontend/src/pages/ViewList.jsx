@@ -23,16 +23,26 @@ const ViewList=()=>{
     }
 
     return(
-        <div>
-            <div>Application list</div>
-            <div>
-                {list.map((it,index)=>(
-                       <div key={index}>
-                             <div>{it.cmpname}</div>
-                             <div>{it.url}</div>  
-                            <p>{Dateformat(it.date)}</p>   
-                       </div>
-                ))}         
+        <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center py-10">
+            <div className="text-3xl font-extrabold text-gray-800 mb-6">Application List</div>
+            <div className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-lg space-y-6">
+              {list.map((it, index) => (
+                <div
+                  key={index}
+                  className="p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300"
+                >
+                  <div className="text-xl font-bold text-gray-800 mb-2">{it.cmpname}</div>
+                  <div
+                    className="text-blue-600 hover:underline cursor-pointer mb-2 break-words"
+                    onClick={() => {
+                      window.open(it.url, "_blank");
+                    }}
+                  >
+                    {it.url}
+                  </div>
+                  <p className="text-gray-600">{Dateformat(it.date)}</p>
+                </div>
+              ))}
             </div>
         </div>
     )
